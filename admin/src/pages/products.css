@@ -1,0 +1,189 @@
+.products-page {
+  display: grid;
+  gap: 20px;
+}
+
+.products-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.products-header h2 {
+  margin: 0 0 4px;
+  font-size: 20px;
+  color: var(--text-dark);
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.add-btn {
+  background: #8B4513;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+
+.add-btn:hover {
+  background: #6d3410;
+}
+
+.products-table-wrap {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.products-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.products-table thead {
+  background: #faf7f2;
+  border-bottom: 1px solid #e8dfd0;
+}
+
+.products-table th {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.products-table tbody tr {
+  border-bottom: 1px solid #f0e6da;
+}
+
+.products-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.products-table tbody tr:hover {
+  background: #fdfcfa;
+}
+
+.products-table td {
+  padding: 14px 16px;
+  vertical-align: middle;
+}
+
+.product-cell {
+  max-width: 400px;
+}
+
+.product-name {
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 3px;
+}
+
+.product-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.old-price {
+  margin-left: 8px;
+  text-decoration: line-through;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.color-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.color-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  display: inline-block;
+}
+
+.color-more {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.icon-btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 6px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.icon-btn.edit {
+  background: #fff7e6;
+  color: #a66a00;
+}
+
+.icon-btn.edit:hover {
+  background: #ffe7b3;
+}
+
+.icon-btn.delete {
+  background: #fee;
+  color: #c33;
+}
+
+.icon-btn.delete:hover {
+  background: #fdd;
+}
+
+.empty-state {
+  padding: 60px 20px;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.loading {
+  padding: 40px;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.toast {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  z-index: 1000;
+  color: #155724;
+  background: #d4edda;
+  border: 1px solid #c3e6cb;
+  font-weight: 600;
+}

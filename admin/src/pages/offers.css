@@ -1,0 +1,166 @@
+.offers-page {
+  padding: 20px;
+}
+
+.offers-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+
+.offers-header h2 {
+  color: #5c4033;
+  margin-bottom: 5px;
+}
+
+.offers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.offer-card {
+  background: linear-gradient(135deg, #D4A574 0%, #c89560 100%);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  color: white;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.offer-card.inactive {
+  opacity: 0.6;
+  background: linear-gradient(135deg, #999 0%, #777 100%);
+}
+
+.offer-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.offer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.offer-discount {
+  font-size: 32px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.toggle-btn {
+  padding: 6px 16px;
+  border: 2px solid white;
+  background: transparent;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.toggle-btn.active {
+  background: white;
+  color: #D4A574;
+}
+
+.offer-card h3 {
+  font-size: 20px;
+  margin: 0 0 15px 0;
+}
+
+.offer-code {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  padding: 12px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+}
+
+.offer-code code {
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.offer-details {
+  margin-bottom: 15px;
+}
+
+.offer-details p {
+  margin: 8px 0;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.offer-actions {
+  display: flex;
+  gap: 10px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255,255,255,0.3);
+}
+
+.offer-actions .icon-btn {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid white;
+  background: rgba(255,255,255,0.2);
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 600;
+}
+
+.offer-actions .icon-btn:hover {
+  background: white;
+  color: #D4A574;
+}
+
+.offer-form {
+  padding: 20px;
+}
+
+.form-field {
+  margin-bottom: 20px;
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 8px;
+  color: #5c4033;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.form-field input[type="text"],
+.form-field input[type="number"],
+.form-field input[type="date"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.subtitle {
+  color: #999;
+  font-size: 14px;
+}

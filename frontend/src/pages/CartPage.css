@@ -1,0 +1,132 @@
+.cart-page {
+  padding: 50px 0;
+  min-height: 60vh;
+}
+
+.cart-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 100px 1fr auto auto auto;
+  gap: 20px;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+.cart-item:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 5px;
+  background: white;
+  padding: 5px;
+  border: 1px solid #e0e0e0;
+}
+
+.item-quantity {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.item-quantity button {
+  padding: 5px 15px;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.item-quantity button:hover {
+  background-color: #D4AF37;
+  color: #000000;
+}
+
+.cart-summary {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  height: fit-content;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cart-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .cart-item {
+    grid-template-columns: 80px 1fr;
+    grid-template-rows: auto auto;
+    gap: 15px;
+  }
+  
+  .cart-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+  }
+  
+  .item-quantity {
+    grid-column: 1 / -1;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .cart-page {
+    padding: 30px 0;
+  }
+  
+  .cart-item {
+    grid-template-columns: 60px 1fr;
+    padding: 15px;
+  }
+  
+  .cart-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+  }
+  
+  .item-quantity button {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+  
+  .cart-summary {
+    padding: 15px;
+  }
+}
+
+.summary-row.total {
+  font-weight: 700;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.btn-block {
+  width: 100%;
+  margin-top: 15px;
+}

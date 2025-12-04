@@ -1,0 +1,137 @@
+.faq-page {
+  padding: 20px;
+}
+
+.faq-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+
+.faq-header h2 {
+  color: #5c4033;
+  margin-bottom: 5px;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.faq-card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: all 0.3s;
+}
+
+.faq-card.inactive {
+  opacity: 0.6;
+}
+
+.faq-card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.faq-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.faq-category {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(212, 175, 55, 0.15);
+  color: #D4AF37;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.faq-card h3 {
+  color: #5c4033;
+  margin: 0 0 10px 0;
+  font-size: 16px;
+}
+
+.faq-card p {
+  color: #666;
+  line-height: 1.6;
+  margin: 0 0 15px 0;
+}
+
+.faq-actions {
+  display: flex;
+  gap: 10px;
+  padding-top: 15px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.faq-actions .icon-btn {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  background: #f0f0f0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.faq-actions .icon-btn.edit {
+  color: #D4AF37;
+}
+
+.faq-actions .icon-btn.edit:hover {
+  background: #D4AF37;
+  color: #000000;
+}
+
+.faq-actions .icon-btn.delete {
+  color: #f44336;
+}
+
+.faq-actions .icon-btn.delete:hover {
+  background: #f44336;
+  color: white;
+}
+
+.faq-form {
+  padding: 20px;
+}
+
+.form-field {
+  margin-bottom: 20px;
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 8px;
+  color: #5c4033;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.form-field select,
+.form-field input[type="text"],
+.form-field textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.form-field textarea {
+  resize: vertical;
+  font-family: inherit;
+}

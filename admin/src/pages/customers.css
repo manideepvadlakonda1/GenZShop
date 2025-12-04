@@ -1,0 +1,160 @@
+.customers-page {
+  padding: 20px;
+}
+
+.customers-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+
+.customers-header h2 {
+  color: #5c4033;
+  margin-bottom: 5px;
+}
+
+.customers-stats {
+  display: flex;
+  gap: 15px;
+}
+
+.customers-controls {
+  margin-bottom: 20px;
+}
+
+.customers-table-wrap {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+.customers-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.customers-table thead {
+  background: #F5E6D3;
+}
+
+.customers-table th {
+  padding: 15px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  color: #5c4033;
+  text-transform: uppercase;
+}
+
+.customers-table td {
+  padding: 15px;
+  border-top: 1px solid #f0f0f0;
+  font-size: 14px;
+}
+
+.customer-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.customer-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #D4AF37;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.customer-avatar-large {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #D4AF37;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 32px;
+  margin: 0 auto 15px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(212, 175, 55, 0.15);
+  color: #D4AF37;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.customer-modal {
+  max-width: 600px;
+}
+
+.customer-details {
+  display: grid;
+  gap: 20px;
+}
+
+.customer-details .detail-section {
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.customer-details .detail-section:not(:first-child) {
+  text-align: left;
+}
+
+.customer-details h3 {
+  margin: 0 0 5px 0;
+  color: #5c4033;
+  font-size: 20px;
+}
+
+.customer-details h4 {
+  margin: 0 0 10px 0;
+  color: #5c4033;
+  font-size: 14px;
+}
+
+.customer-details p {
+  margin: 8px 0;
+  color: #666;
+  font-size: 14px;
+}
+
+/* Modal basics */
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center; z-index: 1000; }
+.modal-content { background: #fff; border-radius: 14px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); overflow: hidden; }
+.modal-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; border-bottom: 1px solid #f0f2f5; }
+.close-btn { font-size: 22px; line-height: 1; background: none; border: none; cursor: pointer; }
+
+/* Order history layout */
+.orders-history { padding: 0 16px 16px; }
+.orders-history h3 { margin: 10px 0; color: #5c4033; }
+.order-row { display: grid; grid-template-columns: minmax(160px, 1.2fr) minmax(140px, 0.9fr) minmax(100px, 0.7fr) minmax(100px, auto); align-items: center; gap: 14px; padding: 10px 14px; border: 1px solid #f0f2f5; border-radius: 12px; background: #fff; margin-bottom: 10px; }
+.order-id { font-weight: 700; letter-spacing: 0.2px; word-break: break-word; font-size: 13px; }
+.order-time { color: #737373; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.order-amount { font-weight: 700; font-size: 14px; }
+.status-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; border: 1px solid #e6e8eb; border-radius: 999px; padding: 5px 12px; background: #f8f9fa; justify-self: end; white-space: nowrap; min-width: fit-content; }
+.status-badge.Processing { border-color: #D4AF37; color: #D4AF37; background: rgba(212, 175, 55, 0.15); }
+.status-badge.Shipped { border-color: #ffe3b3; color: #ff9800; background: #fff6e5; }
+.status-badge.Delivered { border-color: #c9efd9; color: #4caf50; background: #eaf9f1; }
+.status-badge.Refunded { border-color: #ffd3d3; color: #f44336; background: #ffeeee; }
+
+@media (max-width: 820px) {
+  .order-row { grid-template-columns: 1fr; }
+  .status-badge { justify-self: start; }
+}

@@ -1,0 +1,35 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: var(--card-bg);
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.page-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.header-actions { display: flex; align-items: center; gap: 14px; }
+
+.icon-btn {
+  border: none;
+  background: #f2ece4;
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  display: grid; place-items: center;
+  color: var(--text-dark);
+  cursor: pointer;
+}
+
+.admin-info { display: flex; align-items: center; gap: 10px; }
+.avatar { width: 36px; height: 36px; border-radius: 10px; background: #e9d9c8; display: grid; place-items: center; font-weight: 700; }
+.meta { line-height: 1.1; }
+.meta .name { font-weight: 600; }
+.meta .email { font-size: 12px; color: var(--text-muted); }
