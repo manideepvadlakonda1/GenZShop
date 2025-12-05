@@ -26,7 +26,7 @@ class Subcategory {
     
     public function getByCategory($categoryId) {
         try {
-            $cursor = $this->collection->find(['categoryId' => $categoryId, 'active' => true], ['sort' => ['name' => 1]]);
+            $cursor = $this->collection->find(['categoryId' => $categoryId, 'isActive' => true], ['sort' => ['name' => 1]]);
             $subcategories = [];
             
             foreach ($cursor as $doc) {
@@ -41,7 +41,7 @@ class Subcategory {
     
     public function getActive() {
         try {
-            $cursor = $this->collection->find(['active' => true], ['sort' => ['name' => 1]]);
+            $cursor = $this->collection->find(['isActive' => true], ['sort' => ['name' => 1]]);
             $subcategories = [];
             
             foreach ($cursor as $doc) {

@@ -26,7 +26,7 @@ class Category {
     
     public function getActive() {
         try {
-            $cursor = $this->collection->find(['active' => true], ['sort' => ['name' => 1]]);
+            $cursor = $this->collection->find(['isActive' => true], ['sort' => ['name' => 1]]);
             $categories = [];
             
             foreach ($cursor as $doc) {
