@@ -11,7 +11,7 @@ class Product {
     
     public function getAll($filters = []) {
         $query = [];
-        $options = ['limit' => 50];
+        $options = ['limit' => 100];
         
         if (isset($filters['category']) && !empty($filters['category'])) {
             $query['category'] = $filters['category'];
