@@ -7,23 +7,27 @@ ini_set('max_execution_time', '300');
 
 header('Content-Type: application/json');
 
+// Load config
 $config = require __DIR__ . '/../config/config.php';
 
 // Handle multiple CORS origins
-$allowedOrigins = array_map('trim', explode(',', $config['cors']['origin']));
-$origin = isset($_SERVER['HTTP_ORIGIN']) ? $_SERVER['HTTP_ORIGIN'] : '';
-// In dev, reflect localhost origins to avoid port mismatch issues
-if ($origin && (in_array($origin, $allowedOrigins) || str_starts_with($origin, 'http://localhost') || str_starts_with($origin, 'https://localhost'))) {
-    header('Access-Control-Allow-Origin: ' . $origin);
+$allowedOrigins = $config['cors']['origins'] ?? ['*'];
+$origin = $_SERVER['HTTP_ORIGIN'] ?? '';
+
+if ($origin && in_array($origin, $allowedOrigins)) {
+    header("Access-Control-Allow-Origin: $origin");
+} elseif (str_starts_with($origin, 'http://localhost') || str_starts_with($origin, 'https://localhost')) {
+    header("Access-Control-Allow-Origin: $origin"); // Allow localhost automatically
 } else {
-    header('Access-Control-Allow-Origin: ' . ($allowedOrigins[0] ?? '*'));
+    header("Access-Control-Allow-Origin: " . ($allowedOrigins[0] ?? '*'));
 }
 
-header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type, Authorization, Accept, X-Requested-With');
-header('Access-Control-Allow-Credentials: true');
-header('Access-Control-Max-Age: 86400');
+header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization, Accept, X-Requested-With");
+header("Access-Control-Allow-Credentials: true");
+header("Access-Control-Max-Age: 86400");
 
+// Handle preflight OPTIONS request
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(200);
     exit();
@@ -73,7 +77,7 @@ try {
         $controller = new ProductController();
         $controller->delete($matches[1]);
     }
-    
+
     // Auth routes
     elseif ($path === '/auth/register' && $requestMethod === 'POST') {
         $controller = new AuthController();
@@ -87,7 +91,7 @@ try {
         $controller = new AuthController();
         $controller->getProfile();
     }
-    
+
     // Order routes
     elseif ($path === '/orders' && $requestMethod === 'POST') {
         $controller = new OrderController();
@@ -109,7 +113,7 @@ try {
         $controller = new OrderController();
         $controller->update($matches[1]);
     }
-    
+
     // Category routes
     elseif ($path === '/categories' && $requestMethod === 'GET') {
         $controller = new CategoryController();
@@ -131,7 +135,7 @@ try {
         $controller = new CategoryController();
         $controller->delete($matches[1]);
     }
-    
+
     // Subcategory routes
     elseif ($path === '/subcategories' && $requestMethod === 'GET') {
         $controller = new SubcategoryController();
@@ -157,7 +161,7 @@ try {
         $controller = new SubcategoryController();
         $controller->delete($matches[1]);
     }
-    
+
     // 404 Not Found
     else {
         http_response_code(404);
