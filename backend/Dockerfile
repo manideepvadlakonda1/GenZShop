@@ -9,8 +9,8 @@ RUN apt-get update && apt-get install -y \
     unzip \
     && rm -rf /var/lib/apt/lists/*
 
-# Install PHP extensions
-RUN pecl install mongodb \
+# Install correct MongoDB extension version (1.x required by composer)
+RUN pecl install mongodb-1.21.0 \
     && docker-php-ext-enable mongodb
 
 # Install Composer
