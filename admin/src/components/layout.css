@@ -61,37 +61,11 @@
     padding: 12px;
     width: 100%;
   }
-
-  .sidebar {
-    position: fixed;
-    left: -260px;
-    top: 0;
-    width: 260px;
-    height: 100vh;
-    z-index: 999;
-    transition: left 0.3s ease;
-  }
-
-  .sidebar.active {
-    left: 0;
-  }
-
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 15px;
-  }
 }
 
 @media (max-width: 540px) {
   .app-content {
     padding: 10px;
-  }
-
-  .sidebar {
-    width: 220px;
-    left: -220px;
   }
 
   .header {

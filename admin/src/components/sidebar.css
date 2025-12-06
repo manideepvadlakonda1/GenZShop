@@ -13,6 +13,10 @@
   transform: translateX(-100%);
 }
 
+.sidebar.open {
+  transform: translateX(0);
+}
+
 .sidebar-header {
   display: flex;
   align-items: center;
@@ -81,16 +85,11 @@
     height: 100vh;
     top: 0;
     left: 0;
-    transform: translateX(-100%);
     z-index: 1000;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     flex-direction: column;
     will-change: transform;
-  }
-  
-  .sidebar.open { 
-    transform: translateX(0);
   }
   
   .sidebar-backdrop {
@@ -136,13 +135,6 @@
   .menu-btn {
     font-size: 16px;
   }
-  .sidebar {
-    position: sticky !important;
-    width: 240px;
-    left: auto;
-    transform: none;
-    z-index: 20;
-  }
 }
 
 @media (max-width: 540px) {
@@ -181,7 +173,7 @@
 
 @media (min-width: 901px) {
   .sidebar {
-    position: sticky !important;
+    position: sticky;
     left: auto;
     transform: none;
     z-index: 20;
