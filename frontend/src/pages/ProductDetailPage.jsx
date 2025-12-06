@@ -79,6 +79,11 @@ const ProductDetailPage = () => {
   
   if (!product) return (
     <div className="product-detail-page">
+      <div className="product-detail-navbar">
+        <button className="back-button" onClick={() => navigate(-1)}>
+          <i className="fas fa-arrow-left"></i> Back
+        </button>
+      </div>
       <div className="container">
         <div className="error-state">
           <i className="fas fa-exclamation-circle"></i>
@@ -99,6 +104,11 @@ const ProductDetailPage = () => {
 
   return (
     <div className="product-detail-page">
+      <div className="product-detail-navbar">
+        <button className="back-button" onClick={() => navigate(-1)}>
+          <i className="fas fa-arrow-left"></i> Back
+        </button>
+      </div>
       <div className="container">
         <div className="product-detail">
           <div className="product-images">

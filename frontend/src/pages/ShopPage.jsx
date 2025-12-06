@@ -1,19 +1,25 @@
 import { useState, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import ProductCard from '../components/ProductCard'
-import { productService, categoryService } from '../services/api'
+import { productService, categoryService, subcategoryService } from '../services/api'
 import './ShopPage.css'
 
 const ShopPage = () => {
   const [searchParams] = useSearchParams()
   const [products, setProducts] = useState([])
   const [categories, setCategories] = useState([])
+  const [subcategories, setSubcategories] = useState([])
   const [loading, setLoading] = useState(true)
   const [selectedCategory, setSelectedCategory] = useState('')
+  const [selectedSubcategory, setSelectedSubcategory] = useState('')
+  const [priceRange, setPriceRange] = useState({ min: 0, max: 20000 })
   const [sortBy, setSortBy] = useState('popularity')
+  const [expandedCategory, setExpandedCategory] = useState('')
+  const [showFilters, setShowFilters] = useState(false)
 
   useEffect(() => {
     fetchCategories()
+    fetchSubcategories()
   }, [])
 
   useEffect(() => {
@@ -24,7 +30,7 @@ const ShopPage = () => {
 
   useEffect(() => {
     fetchProducts()
-  }, [selectedCategory, sortBy])
+  }, [selectedCategory, selectedSubcategory, priceRange, sortBy])
 
   const fetchCategories = async () => {
     try {
@@ -36,14 +42,32 @@ const ShopPage = () => {
     }
   }
 
+  const fetchSubcategories = async () => {
+    try {
+      const response = await subcategoryService.getActive()
+      setSubcategories(response.data.data || [])
+    } catch (error) {
+      console.error('Error fetching subcategories:', error)
+      setSubcategories([])
+    }
+  }
+
   const fetchProducts = async () => {
     try {
       setLoading(true)
       const filters = {}
       
-      // Only filter by category
       if (selectedCategory) {
         filters.category = selectedCategory
+      }
+      
+      if (selectedSubcategory) {
+        filters.subcategory = selectedSubcategory
+      }
+      
+      if (priceRange.min > 0 || priceRange.max < 20000) {
+        filters.minPrice = priceRange.min
+        filters.maxPrice = priceRange.max
       }
       
       if (sortBy && sortBy !== 'popularity') {
@@ -52,7 +76,15 @@ const ShopPage = () => {
       
       console.log('Fetching products with filters:', filters)
       const response = await productService.getAll(filters)
-      const fetchedProducts = response.data.products || []
+      let fetchedProducts = response.data.products || []
+      
+      // Client-side price filtering if needed
+      if (priceRange.min > 0 || priceRange.max < 20000) {
+        fetchedProducts = fetchedProducts.filter(
+          p => p.price >= priceRange.min && p.price <= priceRange.max
+        )
+      }
+      
       console.log('Fetched products:', fetchedProducts.length)
       setProducts(fetchedProducts)
     } catch (error) {
@@ -63,14 +95,37 @@ const ShopPage = () => {
   }
 
   const handleCategoryClick = (categoryName) => {
-    const urlCategoryName = categoryName || ''
-    setSelectedCategory(urlCategoryName)
-    if (urlCategoryName) {
-      const newUrl = `/shop?category=${encodeURIComponent(urlCategoryName)}`
-      window.history.pushState({}, '', newUrl)
+    if (selectedCategory === categoryName) {
+      setSelectedCategory('')
+      setExpandedCategory('')
     } else {
-      window.history.pushState({}, '', '/shop')
+      setSelectedCategory(categoryName)
+      setExpandedCategory(categoryName)
     }
+    setSelectedSubcategory('')
+  }
+
+  const handleSubcategoryClick = (subcategoryName) => {
+    setSelectedSubcategory(selectedSubcategory === subcategoryName ? '' : subcategoryName)
+  }
+
+  const handlePriceChange = (e) => {
+    const { name, value } = e.target
+    setPriceRange(prev => ({
+      ...prev,
+      [name]: parseInt(value) || 0
+    }))
+  }
+
+  const clearFilters = () => {
+    setSelectedCategory('')
+    setSelectedSubcategory('')
+    setPriceRange({ min: 0, max: 20000 })
+    setExpandedCategory('')
+  }
+
+  const getCategorySubcategories = (categoryName) => {
+    return subcategories.filter(sub => sub.category === categoryName)
   }
 
   const handleSortChange = (e) => {
@@ -79,76 +134,147 @@ const ShopPage = () => {
 
   return (
     <div className="shop-page">
-      {/* Shop Header */}
-      <section className="shop-header">
+      {/* Shop Content with Sidebar */}
+      <section className="shop-content">
         <div className="container">
-          <div className="shop-header-content">
-            <h2 className="page-title">Shop by Category</h2>
-            <nav className="breadcrumb">
-              <a href="/">Home</a>
-              <i className="fas fa-chevron-right"></i>
-              <span>Shop</span>
-            </nav>
-          </div>
-        </div>
-      </section>
+          <div className="shop-layout">
+            {/* Mobile Filter Toggle */}
+            <button className="mobile-filter-toggle" onClick={() => setShowFilters(!showFilters)}>
+              <i className="fas fa-bars"></i>
+            </button>
 
-      {/* Shop Categories */}
-      <section className="shop-categories">
-        <div className="container">
-          <h3 style={{ marginBottom: '20px', color: '#252B42' }}>Filter by Category</h3>
-          <div className="categories-grid">
-            {/* All Products */}
-            <div 
-              className={`category-card ${!selectedCategory ? 'active' : ''}`}
-              onClick={() => handleCategoryClick('')}
-              style={{ cursor: 'pointer' }}
-            >
-              <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop" alt="All Products" />
-              <div className="category-overlay">
-                <h5>ALL</h5>
+            {/* Sidebar Filters */}
+            <aside className={`shop-sidebar ${showFilters ? 'show' : ''}`}>
+              <div className="sidebar-header">
+                <button className="clear-filters" onClick={clearFilters}>
+                  <i className="fas fa-times"></i> CLEAR ALL FILTERS
+                </button>
+                <button className="close-filters-mobile" onClick={() => setShowFilters(false)}>
+                  <i className="fas fa-times"></i>
+                </button>
               </div>
-            </div>
 
-            {/* Dynamic Categories from Database */}
-            {categories.map(category => (
-              <div 
-                key={category._id}
-                className={`category-card ${selectedCategory === category.name ? 'active' : ''}`}
-                onClick={() => handleCategoryClick(category.name)}
-                style={{ cursor: 'pointer' }}
-              >
-                {category.image ? (
-                  <img src={category.image} alt={category.name} />
-                ) : (
-                  <img src="https://via.placeholder.com/400x400?text=Category" alt={category.name} />
-                )}
-                <div className="category-overlay">
-                  <h5>{category.name.toUpperCase()}</h5>
+              {/* Categories Filter */}
+              <div className="filter-section">
+                <h4>Categories</h4>
+                <div className="filter-options">
+                  {categories.map(category => (
+                    <div key={category._id} className="category-filter">
+                      <div 
+                        className={`filter-option ${selectedCategory === category.name ? 'active' : ''}`}
+                        onClick={() => handleCategoryClick(category.name)}
+                      >
+                        <span>{category.name}</span>
+                        {getCategorySubcategories(category.name).length > 0 && (
+                          <i className={`fas fa-chevron-${expandedCategory === category.name ? 'up' : 'down'}`}></i>
+                        )}
+                      </div>
+                      
+                      {/* Subcategories */}
+                      {expandedCategory === category.name && getCategorySubcategories(category.name).length > 0 && (
+                        <div className="subcategory-list">
+                          {getCategorySubcategories(category.name).map(sub => (
+                            <div
+                              key={sub._id}
+                              className={`subcategory-option ${selectedSubcategory === sub.name ? 'active' : ''}`}
+                              onClick={(e) => {
+                                e.stopPropagation()
+                                handleSubcategoryClick(sub.name)
+                              }}
+                            >
+                              {sub.name}
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ))}
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* Products Grid */}
-      <section className="shop-products">
-        <div className="container">
-          <div className="section-header">
-            <h2>{selectedCategory ? selectedCategory : 'All Products'}</h2>
-            <p>Explore our collection</p>
-          </div>
-          <div className="products-grid">
-            {loading ? (
-              <p className="loading-text">Loading products...</p>
-            ) : products.length > 0 ? (
-              products.map(product => (
-                <ProductCard key={product._id} product={product} />
-              ))
-            ) : (
-              <p className="no-products">No products found.</p>
-            )}
+              {/* Price Range Filter */}
+              <div className="filter-section">
+                <h4>Price Range</h4>
+                <div className="price-filter">
+                  <div className="price-inputs">
+                    <input
+                      type="number"
+                      name="min"
+                      placeholder="Min"
+                      value={priceRange.min}
+                      onChange={handlePriceChange}
+                    />
+                    <span>-</span>
+                    <input
+                      type="number"
+                      name="max"
+                      placeholder="Max"
+                      value={priceRange.max}
+                      onChange={handlePriceChange}
+                    />
+                  </div>
+                  <div className="price-range-display">
+                    ₹{priceRange.min} - ₹{priceRange.max}
+                  </div>
+                </div>
+              </div>
+
+              {/* Active Filters */}
+              {(selectedCategory || selectedSubcategory || priceRange.min > 0 || priceRange.max < 20000) && (
+                <div className="active-filters">
+                  <h4>Active Filters</h4>
+                  {selectedCategory && (
+                    <span className="filter-tag">
+                      {selectedCategory}
+                      <i className="fas fa-times" onClick={() => setSelectedCategory('')}></i>
+                    </span>
+                  )}
+                  {selectedSubcategory && (
+                    <span className="filter-tag">
+                      {selectedSubcategory}
+                      <i className="fas fa-times" onClick={() => setSelectedSubcategory('')}></i>
+                    </span>
+                  )}
+                  {(priceRange.min > 0 || priceRange.max < 20000) && (
+                    <span className="filter-tag">
+                      ₹{priceRange.min} - ₹{priceRange.max}
+                      <i className="fas fa-times" onClick={() => setPriceRange({ min: 0, max: 20000 })}></i>
+                    </span>
+                  )}
+                </div>
+              )}
+            </aside>
+
+            {/* Products Area */}
+            <div className="shop-main">
+              <div className="products-header">
+                <h2 className="results-title">
+                  {selectedCategory || selectedSubcategory || 'All Products'} 
+                  <span className="results-count">({products.length} items)</span>
+                </h2>
+                <div className="sort-controls">
+                  <label>Sort by:</label>
+                  <select value={sortBy} onChange={handleSortChange}>
+                    <option value="popularity">Popularity</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="newest">Newest</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="products-grid">
+                {loading ? (
+                  <p className="loading-text">Loading products...</p>
+                ) : products.length > 0 ? (
+                  products.map(product => (
+                    <ProductCard key={product._id} product={product} />
+                  ))
+                ) : (
+                  <p className="no-products">No products found matching your filters.</p>
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </section>

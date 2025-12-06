@@ -137,21 +137,21 @@
 }
 
 .view-details-btn {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  background: #8B1A1A;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 14px;
-  transition: all 0.3s ease;
-  margin-top: auto;
-}
-
-.view-details-btn:hover {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #8B1A1A;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    margin-top: auto;
+    border: none;
+    cursor: pointer;
+}.view-details-btn:hover {
   background: #6d1414;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(139, 26, 26, 0.3);

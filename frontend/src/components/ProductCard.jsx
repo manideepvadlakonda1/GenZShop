@@ -56,8 +56,8 @@ const ProductCard = ({ product }) => {
             )}
           </div>
         </div>
-        <Link to={`/product/${product._id}`} className="view-details-btn">
-          View Details
+        <Link to={`/product/${product._id}`} className="view-details-btn" onClick={handleAddToCart}>
+          ADD TO CART
         </Link>
       </div>
     </div>
