@@ -327,9 +327,173 @@
   }
 }
 
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 22px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 15px;
+  }
+
+  .stat-card {
+    padding: 15px;
+    gap: 8px;
+  }
+
+  .stat-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .stat-value {
+    font-size: 20px;
+  }
+
+  .stat-label {
+    font-size: 12px;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .quick-stats-card,
+  .top-products-card,
+  .recent-activity-card {
+    padding: 15px;
+  }
+
+  .roc-header h2,
+  .quick-stats-card h2,
+  .top-products-card h2,
+  .recent-activity-card h2 {
+    font-size: 16px;
+  }
+
+  .quick-stats-list {
+    gap: 10px;
+  }
+
+  .quick-stat-item {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .qsi-value {
+    font-size: 16px;
+  }
+
+  .order-item {
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  .order-title {
+    font-size: 13px;
+  }
+
+  .activity-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+
+  .activity-text {
+    font-size: 13px;
+  }
+
+  .activity-time {
+    font-size: 11px;
+  }
+}
+
 @media (max-width: 540px) {
   .stats-grid { 
-    grid-template-columns: 1fr; 
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 18px;
+  }
+
+  .stat-card {
+    padding: 12px;
+  }
+
+  .stat-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+
+  .stat-value {
+    font-size: 18px;
+  }
+
+  .stat-label {
+    font-size: 11px;
+  }
+
+  .quick-stats-card,
+  .top-products-card,
+  .recent-activity-card {
+    padding: 12px;
+  }
+
+  .roc-header h2,
+  .quick-stats-card h2,
+  .top-products-card h2,
+  .recent-activity-card h2 {
+    font-size: 14px;
+  }
+
+  .order-item {
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .order-title {
+    font-size: 12px;
+  }
+
+  .order-sub {
+    font-size: 11px;
+  }
+
+  .link-btn {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+
+  .activity-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+
+  .activity-text {
+    font-size: 12px;
+  }
+
+  .activity-time {
+    font-size: 10px;
+  }
+}
   }
   
   .dashboard {

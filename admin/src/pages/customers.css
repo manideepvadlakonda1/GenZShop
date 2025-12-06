@@ -157,4 +157,60 @@
 @media (max-width: 820px) {
   .order-row { grid-template-columns: 1fr; }
   .status-badge { justify-self: start; }
+  
+  .section-title {
+    font-size: 20px;
+  }
+
+  .table-header {
+    padding: 12px;
+    font-size: 13px;
+  }
+
+  .order-row {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .customer-link {
+    font-size: 13px;
+  }
+
+  .order-amount {
+    font-size: 12px;
+  }
+
+  .status-badge {
+    padding: 4px 10px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 540px) {
+  .section-title {
+    font-size: 18px;
+  }
+
+  .table-header {
+    padding: 10px;
+    font-size: 11px;
+  }
+
+  .order-row {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .customer-link {
+    font-size: 12px;
+  }
+
+  .order-amount {
+    font-size: 11px;
+  }
+
+  .status-badge {
+    padding: 3px 8px;
+    font-size: 10px;
+  }
 }

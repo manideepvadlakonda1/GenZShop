@@ -67,3 +67,64 @@
   .sidebar { position: fixed; width: 240px; transform: translateX(-100%); z-index: 20; }
   .sidebar.open { transform: translateX(0); }
 }
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 220px;
+  }
+
+  .sidebar-header {
+    padding: 12px 12px;
+  }
+
+  .nav {
+    padding: 8px 6px;
+  }
+
+  .nav-item {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+
+  .brand {
+    font-size: 14px;
+  }
+
+  .menu-btn {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 540px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .sidebar-header {
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .brand {
+    font-size: 12px;
+  }
+
+  .nav {
+    padding: 6px 4px;
+    gap: 2px;
+  }
+
+  .nav-item {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+
+  .nav-item i {
+    width: 16px;
+    font-size: 14px;
+  }
+
+  .sidebar-footer {
+    padding: 8px 4px 12px;
+  }
+}

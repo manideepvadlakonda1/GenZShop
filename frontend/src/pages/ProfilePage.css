@@ -483,6 +483,7 @@
   border-radius: 10px;
   padding: 20px;
   transition: all 0.3s ease;
+  background: var(--luxury-dark);
 }
 
 .order-card:hover {
@@ -741,7 +742,7 @@
 }
 
 .modal-header h2 {
-  color: var(--text-light);
+  color: var(--black-primary);
   font-size: 24px;
   font-weight: 700;
   margin: 0;
@@ -751,7 +752,7 @@
   background: none;
   border: none;
   font-size: 24px;
-  color: #999;
+  color: var(--black-primary);
   cursor: pointer;
   width: 36px;
   height: 36px;
@@ -763,7 +764,7 @@
 }
 
 .modal-close:hover {
-  background: var(--luxury-dark);
+  background: rgba(212, 175, 55, 0.1);
   color: var(--primary-gold);
 }
 
@@ -782,14 +783,14 @@
 }
 
 .order-detail-info h3 {
-  color: var(--text-light);
+  color: var(--black-primary);
   font-size: 20px;
   font-weight: 700;
   margin: 0 0 8px 0;
 }
 
 .order-detail-info .order-date {
-  color: #999;
+  color: #666;
   font-size: 14px;
   margin: 0;
 }
@@ -803,7 +804,7 @@
 }
 
 .order-detail-section h4 {
-  color: #252B42;
+  color: var(--black-primary);
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 15px;
@@ -846,7 +847,7 @@
 }
 
 .order-detail-item-info h5 {
-  color: var(--text-light);
+  color: var(--black-primary);
   font-size: 16px;
   font-weight: 600;
   margin: 0 0 5px 0;
@@ -880,7 +881,7 @@
 
 .shipping-address-box p {
   margin: 0 0 8px 0;
-  color: var(--text-light);
+  color: var(--black-primary);
   font-size: 14px;
   line-height: 1.6;
 }
@@ -908,7 +909,7 @@
 
 .payment-info-box .payment-method {
   font-weight: 600;
-  color: var(--text-light);
+  color: var(--black-primary);
   text-transform: uppercase;
   font-size: 14px;
 }
@@ -941,7 +942,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 0;
-  color: var(--text-light);
+  color: var(--black-primary);
   font-size: 15px;
 }
 
