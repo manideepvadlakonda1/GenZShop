@@ -6,21 +6,27 @@ import Header from './Header'
 import './layout.css'
 
 const Layout = () => {
-  const { sidebarOpen, toggleSidebar, setSidebarOpen } = useUIStore()
+  const { sidebarOpen, setSidebarOpen } = useUIStore()
 
   useEffect(() => {
-    // Close sidebar on initial load for mobile widths
-    if (typeof window !== 'undefined' && window.innerWidth <= 900 && sidebarOpen) {
-      setSidebarOpen(false)
+    // Initialize sidebar state on mount based on window width
+    const initSidebarState = () => {
+      if (typeof window !== 'undefined') {
+        const shouldBeOpen = window.innerWidth > 900
+        if (sidebarOpen !== shouldBeOpen) {
+          setSidebarOpen(shouldBeOpen)
+        }
+      }
     }
+    
+    initSidebarState()
 
     const handleResize = () => {
-      if (window.innerWidth > 900 && !sidebarOpen) {
-        setSidebarOpen(true)
-      }
-
-      if (window.innerWidth <= 900 && sidebarOpen) {
-        setSidebarOpen(false)
+      if (typeof window !== 'undefined') {
+        const shouldBeOpen = window.innerWidth > 900
+        if (sidebarOpen !== shouldBeOpen) {
+          setSidebarOpen(shouldBeOpen)
+        }
       }
     }
 

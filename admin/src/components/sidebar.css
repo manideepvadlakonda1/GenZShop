@@ -6,7 +6,8 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  transition: transform 0.25s ease;
+  transition: transform 0.3s ease;
+  z-index: 20;
 }
 
 .sidebar-header {
@@ -68,8 +69,20 @@
 }
 
 @media (max-width: 900px) {
-  .sidebar { position: fixed; width: 240px; transform: translateX(-100%); z-index: 20; }
-  .sidebar.open { transform: translateX(0); }
+  .sidebar { 
+    position: fixed; 
+    width: 240px; 
+    height: 100vh;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    z-index: 20;
+    transition: transform 0.3s ease;
+  }
+  
+  .sidebar.open { 
+    transform: translateX(0); 
+  }
   
   .sidebar-backdrop {
     display: block;
