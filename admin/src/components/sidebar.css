@@ -1,13 +1,16 @@
 .sidebar {
   background: var(--sidebar-bg);
   border-right: 1px solid var(--border-gold);
-  position: sticky;
+    position: fixed;
   top: 0;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease;
+    transition: transform 0.25s ease;
   z-index: 20;
+    left: 0;
+    width: 240px;
+    transform: translateX(-100%);
 }
 
 .sidebar-header {
@@ -24,6 +27,9 @@
   font-size: 18px;
   color: var(--primary-gold);
   cursor: pointer;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
 }
 
 .brand {
@@ -46,6 +52,7 @@
   border-radius: 8px;
   text-decoration: none;
   color: var(--text-light);
+    cursor: pointer;
 }
 
 .nav-item i { width: 18px; text-align: center; }
@@ -62,6 +69,7 @@
 }
 
 .nav-item.logout { color: #ff6b6b; background: rgba(255, 107, 107, 0.1); border: none; width: 100%; text-align: left; }
+.nav-item.logout { cursor: pointer; }
 .nav-item.logout:hover { background: rgba(255, 107, 107, 0.2); }
 
 .sidebar-backdrop {
@@ -70,8 +78,6 @@
 
 @media (max-width: 900px) {
   .sidebar { 
-    position: fixed; 
-    width: 240px; 
     height: 100vh;
     top: 0;
     left: 0;
@@ -103,11 +109,18 @@
     from { opacity: 0; }
     to { opacity: 1; }
   }
+  .app-shell {
+    grid-template-columns: 220px 1fr;
+  }
+
+  .app-content {
+    padding: 15px;
+  }
 }
 
 @media (max-width: 768px) {
   .sidebar {
-    width: 220px;
+      width: 240px; // Adjusted width for mobile
   }
 
   .sidebar-header {
@@ -129,6 +142,13 @@
 
   .menu-btn {
     font-size: 16px;
+  }
+  .sidebar {
+    position: sticky !important;
+    width: 240px;
+    left: auto;
+    transform: none;
+    z-index: 20;
   }
 }
 
