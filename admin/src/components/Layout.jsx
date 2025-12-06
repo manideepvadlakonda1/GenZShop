@@ -9,30 +9,22 @@ const Layout = () => {
   const { sidebarOpen, setSidebarOpen } = useUIStore()
 
   useEffect(() => {
-    // Initialize sidebar state on mount based on window width
-    const initSidebarState = () => {
-      if (typeof window !== 'undefined') {
-        const shouldBeOpen = window.innerWidth > 900
-        if (sidebarOpen !== shouldBeOpen) {
-          setSidebarOpen(shouldBeOpen)
-        }
-      }
-    }
-    
-    initSidebarState()
-
+    // Handle window resize to auto-adjust sidebar visibility
     const handleResize = () => {
       if (typeof window !== 'undefined') {
-        const shouldBeOpen = window.innerWidth > 900
-        if (sidebarOpen !== shouldBeOpen) {
-          setSidebarOpen(shouldBeOpen)
-        }
+        const isDesktop = window.innerWidth > 900
+        // Only set sidebar open on desktop, closed on mobile
+        setSidebarOpen(isDesktop)
       }
     }
 
+    // Call on mount
+    handleResize()
+
+    // Add listener for resizes
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
-  }, [sidebarOpen, setSidebarOpen])
+  }, [setSidebarOpen])
 
   return (
     <div className="app-shell">

@@ -18,10 +18,16 @@ const Header = () => {
   const { pathname } = useLocation()
   const { toggleSidebar } = useUIStore()
   const title = titleMap[pathname] || 'Admin'
+  
+  const handleMenuClick = () => {
+    console.log('Menu button clicked')
+    toggleSidebar()
+  }
+  
   return (
     <header className="header">
       <div className="header-left">
-        <button className="mobile-menu-btn" onClick={toggleSidebar}>
+        <button className="mobile-menu-btn" onClick={handleMenuClick} aria-label="Toggle menu">
           <i className="fa-solid fa-bars" />
         </button>
         <h1 className="page-title">{title}</h1>
