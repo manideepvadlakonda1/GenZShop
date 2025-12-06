@@ -49,15 +49,15 @@ const Dashboard = () => {
     const fetchAll = async () => {
       setLoading(true)
       try {
-        // Fetch orders with timeout
-        const ordersResp = await axios.get(`${API_URL}/orders`, { timeout: 10000 })
+        // Fetch orders with extended timeout for Render cold start
+        const ordersResp = await axios.get(`${API_URL}/orders`, { timeout: 30000 })
         const fetchedOrders = ordersResp.data.orders || ordersResp.data.data || []
         setOrders(fetchedOrders)
 
         // Fetch products (optional; if fails we fallback to distinct products from orders)
         let productCount = 0
         try {
-          const prodResp = await axios.get(`${API_URL}/products`, { timeout: 10000 })
+          const prodResp = await axios.get(`${API_URL}/products`, { timeout: 30000 })
           productCount = (prodResp.data.products || prodResp.data.data || []).length
         } catch (e) {
           // derive from orders items
@@ -106,7 +106,12 @@ const Dashboard = () => {
       </div>
 
       {loading ? (
-        <div className="loading">Loading analytics...</div>
+        <div className="loading">
+          <div>Loading analytics...</div>
+          <div style={{fontSize: '14px', marginTop: '10px', color: '#999'}}>
+            {API_URL.includes('render.com') && 'Backend may take 30-60 seconds to wake up on first load'}
+          </div>
+        </div>
       ) : error ? (
         <div className="error">{error}</div>
       ) : (
