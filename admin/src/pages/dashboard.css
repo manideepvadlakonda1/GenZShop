@@ -315,6 +315,25 @@
   font-size: 14px;
 }
 
+.loading {
+  color: var(--primary-gold);
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.error {
+  color: #ff6b6b;
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  background: rgba(255, 107, 107, 0.1);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 107, 107, 0.3);
+}
+
 @media (max-width: 1200px) {
   .dashboard-grid {
     grid-template-columns: 1fr;

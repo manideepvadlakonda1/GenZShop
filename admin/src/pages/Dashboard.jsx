@@ -9,6 +9,12 @@ const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
 
 const Dashboard = () => {
   const navigate = useNavigate()
+  
+  // Debug log
+  useEffect(() => {
+    console.log('Dashboard API URL:', API_URL)
+  }, [])
+  
   const [dashboardData, setDashboardData] = useState({
     revenue: 0,
     orders: 0,
@@ -43,15 +49,15 @@ const Dashboard = () => {
     const fetchAll = async () => {
       setLoading(true)
       try {
-        // Fetch orders
-        const ordersResp = await axios.get(`${API_URL}/orders`)
+        // Fetch orders with timeout
+        const ordersResp = await axios.get(`${API_URL}/orders`, { timeout: 10000 })
         const fetchedOrders = ordersResp.data.orders || ordersResp.data.data || []
         setOrders(fetchedOrders)
 
         // Fetch products (optional; if fails we fallback to distinct products from orders)
         let productCount = 0
         try {
-          const prodResp = await axios.get(`${API_URL}/products`)
+          const prodResp = await axios.get(`${API_URL}/products`, { timeout: 10000 })
           productCount = (prodResp.data.products || prodResp.data.data || []).length
         } catch (e) {
           // derive from orders items
@@ -79,7 +85,12 @@ const Dashboard = () => {
         setError(null)
       } catch (err) {
         console.error('Dashboard data fetch failed:', err)
-        setError('Failed to load analytics')
+        const errorMsg = err.code === 'ECONNABORTED' 
+          ? 'Connection timeout - Backend server not responding'
+          : err.message?.includes('Network Error')
+          ? 'Network error - Cannot reach backend server'
+          : 'Failed to load analytics - Please check your connection'
+        setError(errorMsg)
       } finally {
         setLoading(false)
       }
