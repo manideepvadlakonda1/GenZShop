@@ -18,7 +18,7 @@
 .shop-sidebar {
     width: 280px;
     flex-shrink: 0;
-    background: white;
+    background: var(--luxury-dark);
     border-radius: 12px;
     padding: 20px;
     height: fit-content;
@@ -26,7 +26,8 @@
     overflow-y: auto;
     position: sticky;
     top: 120px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 8px rgba(212, 175, 55, 0.15);
+    border: 1px solid var(--border-gold);
 }
 
 .sidebar-header {
@@ -35,7 +36,7 @@
     align-items: center;
     margin-bottom: 20px;
     padding-bottom: 15px;
-    border-bottom: 2px solid #f0f0f0;
+    border-bottom: 2px solid var(--border-gold);
 }
 
 .sidebar-header-actions {
@@ -47,14 +48,14 @@
 .sidebar-header h3 {
     font-size: 20px;
     font-weight: 700;
-    color: #252B42;
+    color: var(--primary-gold);
     margin: 0;
 }
 
 .clear-filters {
     background: none;
     border: none;
-    color: #8B1A1A;
+    color: var(--primary-gold);
     font-size: 13px;
     font-weight: 600;
     cursor: pointer;
@@ -70,14 +71,14 @@
     background: none;
     border: none;
     font-size: 20px;
-    color: #252B42;
+    color: var(--primary-gold);
     cursor: pointer;
 }
 
 .filter-section {
     margin-bottom: 22px;
     padding-bottom: 22px;
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
 }
 
 .filter-section:last-child {
@@ -89,7 +90,7 @@
 .filter-section h4 {
     font-size: 15px;
     font-weight: 700;
-    color: #252B42;
+    color: var(--text-light);
     margin-bottom: 12px;
     margin-top: 0;
 }
@@ -110,22 +111,25 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px 12px;
-    background: #f8f9fa;
+    background: var(--black-primary);
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s;
     font-size: 14px;
-    color: #252B42;
+    color: var(--text-light);
     font-weight: 500;
+    border: 1px solid transparent;
 }
 
 .filter-option:hover {
-    background: #e9ecef;
+    background: var(--black-secondary);
+    border-color: var(--border-gold);
 }
 
 .filter-option.active {
-    background: #8B1A1A;
-    color: white;
+    background: var(--primary-gold);
+    color: var(--black-primary);
+    font-weight: 700;
 }
 
 .filter-option i {
@@ -144,22 +148,24 @@
 
 .subcategory-option {
     padding: 8px 12px;
-    background: #f8f9fa;
+    background: var(--black-primary);
     border-radius: 6px;
     cursor: pointer;
     transition: all 0.3s;
     font-size: 13px;
-    color: #737373;
+    color: #999;
+    border: 1px solid transparent;
 }
 
 .subcategory-option:hover {
-    background: #e9ecef;
-    color: #252B42;
+    background: var(--black-secondary);
+    color: var(--text-light);
+    border-color: var(--border-gold);
 }
 
 .subcategory-option.active {
-    background: #8B1A1A;
-    color: white;
+    background: var(--primary-gold);
+    color: var(--black-primary);
     font-weight: 600;
 }
 
@@ -180,10 +186,12 @@
 .price-inputs input {
     flex: 1;
     padding: 8px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-gold);
     border-radius: 6px;
     font-size: 13px;
     width: 0;
+    background: var(--black-primary);
+    color: var(--text-light);
 }
 
 .price-inputs input::-webkit-outer-spin-button,

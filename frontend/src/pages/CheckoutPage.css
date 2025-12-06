@@ -1,12 +1,12 @@
 .checkout-page {
   padding: 80px 0;
   min-height: 80vh;
-  background-color: #f8f9fa;
+  background-color: var(--dark-bg);
 }
 
 .checkout-page h2 {
   text-align: center;
-  color: #252B42;
+  color: var(--primary-gold);
   font-size: 32px;
   font-weight: 700;
   margin-bottom: 50px;
@@ -21,10 +21,11 @@
 }
 
 .checkout-form {
-  background: white;
+  background: var(--luxury-dark);
   padding: 40px;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.15);
+  border: 1px solid var(--border-gold);
 }
 
 .form-section {
@@ -33,26 +34,29 @@
 
 .form-section h3 {
   margin-bottom: 20px;
-  color: #252B42;
+  color: var(--primary-gold);
   font-size: 20px;
   font-weight: 600;
   padding-bottom: 10px;
-  border-bottom: 2px solid #f0f0f0;
+  border-bottom: 1px solid var(--border-gold);
 }
 
 .checkout-form input {
   width: 100%;
   padding: 14px;
   margin-bottom: 15px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-gold);
   border-radius: 8px;
   font-size: 15px;
   transition: border-color 0.3s ease;
+  background: var(--black-primary);
+  color: var(--text-light);
 }
 
 .checkout-form input:focus {
   outline: none;
-  border-color: #8B1A1A;
+  border-color: var(--hover-gold);
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.1);
 }
 
 .form-row {
@@ -76,8 +80,8 @@
 .btn-add-new-address {
   padding: 8px 16px;
   background: transparent;
-  color: #8B1A1A;
-  border: 1px solid #8B1A1A;
+  color: var(--primary-gold);
+  border: 1px solid var(--border-gold);
   border-radius: 6px;
   font-size: 14px;
   font-weight: 500;
@@ -89,15 +93,15 @@
 }
 
 .btn-add-new-address:hover {
-  background: #8B1A1A;
-  color: white;
+  background: var(--primary-gold);
+  color: var(--black-primary);
 }
 
 .btn-use-saved {
   padding: 10px 16px;
   background: transparent;
-  color: #737373;
-  border: 1px solid #e0e0e0;
+  color: #999;
+  border: 1px solid rgba(212, 175, 55, 0.3);
   border-radius: 6px;
   font-size: 14px;
   cursor: pointer;
@@ -109,8 +113,8 @@
 }
 
 .btn-use-saved:hover {
-  border-color: #8B1A1A;
-  color: #8B1A1A;
+  border-color: var(--primary-gold);
+  color: var(--primary-gold);
 }
 
 /* Saved Addresses */
@@ -122,21 +126,23 @@
 }
 
 .address-card {
-  border: 2px solid #e0e0e0;
+  border: 2px solid rgba(212, 175, 55, 0.2);
   border-radius: 10px;
   padding: 15px;
   cursor: pointer;
   transition: all 0.3s ease;
+  background: var(--black-primary);
+  color: var(--text-light);
 }
 
 .address-card:hover {
-  border-color: #8B1A1A;
-  background-color: #f8f9fa;
+  border-color: var(--primary-gold);
+  background-color: rgba(212, 175, 55, 0.05);
 }
 
 .address-card.selected {
-  border-color: #8B1A1A;
-  background-color: #fff5f5;
+  border-color: var(--primary-gold);
+  background-color: rgba(212, 175, 55, 0.1);
 }
 
 .address-card-header {
@@ -150,18 +156,18 @@
   width: 18px;
   height: 18px;
   cursor: pointer;
-  accent-color: #8B1A1A;
+  accent-color: var(--primary-gold);
 }
 
 .address-type {
   font-weight: 600;
-  color: #252B42;
+  color: var(--text-light);
   font-size: 14px;
 }
 
 .default-badge {
-  background: #8B1A1A;
-  color: white;
+  background: var(--primary-gold);
+  color: var(--black-primary);
   padding: 2px 8px;
   border-radius: 12px;
   font-size: 11px;
@@ -170,7 +176,7 @@
 
 .address-card-body p {
   font-size: 14px;
-  color: #737373;
+  color: #999;
   margin: 4px 0;
   line-height: 1.5;
 }
@@ -187,12 +193,12 @@
   width: 18px;
   height: 18px;
   cursor: pointer;
-  accent-color: #8B1A1A;
+  accent-color: var(--primary-gold);
 }
 
 .save-address-checkbox span {
   font-size: 14px;
-  color: #252B42;
+  color: var(--text-light);
 }
 
 /* Payment Method Section */
@@ -206,15 +212,17 @@
   display: flex;
   align-items: center;
   padding: 20px;
-  border: 2px solid #e0e0e0;
+  border: 2px solid rgba(212, 175, 55, 0.2);
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
+  background: var(--black-primary);
+  color: var(--text-light);
 }
 
 .payment-option:hover {
-  border-color: #8B1A1A;
-  background-color: #f8f9fa;
+  border-color: var(--primary-gold);
+  background-color: rgba(212, 175, 55, 0.05);
 }
 
 .payment-option input[type="radio"] {
@@ -222,11 +230,11 @@
   height: 20px;
   margin-right: 15px;
   cursor: pointer;
-  accent-color: #8B1A1A;
+  accent-color: var(--primary-gold);
 }
 
 .payment-option input[type="radio"]:checked ~ .payment-option-content {
-  color: #8B1A1A;
+  color: var(--primary-gold);
 }
 
 .payment-option-content {
@@ -238,40 +246,41 @@
 
 .payment-option-content i {
   font-size: 28px;
-  color: #8B1A1A;
+  color: var(--primary-gold);
 }
 
 .payment-option-content strong {
   display: block;
   font-size: 16px;
-  color: #252B42;
+  color: var(--text-light);
   margin-bottom: 3px;
 }
 
 .payment-option-content p {
   font-size: 13px;
-  color: #737373;
+  color: #999;
   margin: 0;
 }
 
 /* Order Summary Sidebar */
 .order-summary-sidebar {
-  background: white;
+  background: var(--luxury-dark);
   padding: 30px;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.15);
   height: fit-content;
   position: sticky;
   top: 100px;
+  border: 1px solid var(--border-gold);
 }
 
 .order-summary-sidebar h3 {
-  color: #252B42;
+  color: var(--primary-gold);
   font-size: 22px;
   font-weight: 700;
   margin-bottom: 25px;
   padding-bottom: 15px;
-  border-bottom: 2px solid #f0f0f0;
+  border-bottom: 1px solid var(--border-gold);
 }
 
 .cart-items-summary {
@@ -284,7 +293,7 @@
   display: flex;
   gap: 15px;
   padding: 15px 0;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
 }
 
 .checkout-item:last-child {
@@ -296,9 +305,9 @@
   height: 90px;
   object-fit: contain;
   border-radius: 8px;
-  background: white;
+  background: var(--black-primary);
   padding: 5px;
-  border: 1px solid #e0e0e0;
+  border: 1px solid var(--border-gold);
 }
 
 .checkout-item-details {
@@ -327,17 +336,17 @@
 
 .remove-item-btn i {
   font-size: 14px;
-  color: #737373;
+  color: #999;
 }
 
 .remove-item-btn:hover i {
-  color: #8B1A1A;
+  color: var(--primary-gold);
 }
 
 .checkout-item-details h4 {
   font-size: 14px;
   font-weight: 600;
-  color: #252B42;
+  color: var(--text-light);
   margin-bottom: 5px;
   overflow: hidden;
   text-overflow: ellipsis;

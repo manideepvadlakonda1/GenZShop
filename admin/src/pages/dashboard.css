@@ -9,7 +9,7 @@
 }
 
 .dashboard-header h1 {
-  color: #5c4033;
+  color: var(--primary-gold);
   margin: 0 0 5px 0;
   font-size: 28px;
 }
@@ -36,28 +36,30 @@
   flex-direction: column;
   gap: 12px;
   transition: all 0.3s;
+  border: 1px solid var(--border-gold);
 }
 
 .stat-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  box-shadow: 0 4px 16px rgba(212,175,55,0.2);
 }
 
 .stat-icon { 
   width: 48px; 
   height: 48px; 
   border-radius: 12px; 
-  background: #f2ece4; 
+  background: var(--black-primary); 
   display: grid; 
   place-items: center; 
-  color: #a36a3c;
+  color: var(--primary-gold);
   font-size: 20px;
+  border: 1px solid var(--border-gold);
 }
 
 .stat-value { 
   font-size: 28px; 
   font-weight: 800;
-  color: #5c4033;
+  color: var(--primary-gold);
 }
 
 .stat-label { 
@@ -87,6 +89,7 @@
   box-shadow: var(--shadow); 
   border-radius: 12px;
   padding: 20px;
+  border: 1px solid var(--primary-gold);
 }
 
 .roc-header { 
@@ -100,7 +103,7 @@
 .quick-stats-card h2,
 .top-products-card h2,
 .recent-activity-card h2 {
-  color: #5c4033;
+  color: var(--primary-gold);
   font-size: 18px;
   margin: 0;
 }
@@ -113,7 +116,7 @@
 .link-btn { 
   background: transparent; 
   border: none; 
-  color: #D4A574; 
+  color: var(--primary-gold); 
   cursor: pointer;
   font-weight: 600;
   font-size: 14px;
@@ -121,7 +124,7 @@
 }
 
 .link-btn:hover {
-  color: #c89560;
+  color: var(--hover-gold);
 }
 
 .order-item { 
@@ -130,17 +133,19 @@
   gap: 10px; 
   padding: 12px; 
   border-radius: 8px;
-  background: #f9f9f9;
+  background: var(--black-primary);
   transition: all 0.3s;
+  border: 1px solid rgba(212, 175, 55, 0.2);
 }
 
 .order-item:hover {
-  background: #f0f0f0;
+  background: rgba(212, 175, 55, 0.05);
+  border-color: var(--primary-gold);
 }
 
 .order-title { 
   font-weight: 700;
-  color: #333;
+  color: var(--text-light);
 }
 
 .order-sub { 

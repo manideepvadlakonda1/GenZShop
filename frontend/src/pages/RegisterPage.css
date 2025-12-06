@@ -1,22 +1,23 @@
 .register-page {
   padding: 80px 0;
   min-height: 60vh;
-  background-color: #f8f9fa;
+  background-color: var(--dark-bg);
 }
 
 .register-form-container {
   max-width: 450px;
   margin: 0 auto;
   padding: 50px 40px;
-  background: white;
+  background: var(--luxury-dark);
   border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(212, 175, 55, 0.15);
+  border: 1px solid var(--border-gold);
 }
 
 .register-form-container h2 {
   margin-bottom: 8px;
   text-align: center;
-  color: #252B42;
+  color: var(--primary-gold);
   font-size: 28px;
   font-weight: 700;
 }
@@ -32,12 +33,12 @@
   width: 100%;
   padding: 14px;
   margin-bottom: 20px;
-  background: white;
-  border: 1px solid #ddd;
+  background: var(--black-primary);
+  border: 1px solid var(--border-gold);
   border-radius: 8px;
   font-size: 16px;
   font-weight: 500;
-  color: #252B42;
+  color: var(--text-light);
   cursor: pointer;
   transition: all 0.3s ease;
   display: flex;
@@ -47,7 +48,9 @@
 }
 
 .google-btn:hover {
-  background: #f8f9fa;
+  background: var(--luxury-dark);
+  border-color: var(--primary-gold);
+}
   border-color: #8B1A1A;
 }
 

@@ -8,28 +8,36 @@
   position: sticky;
   top: 0;
   z-index: 10;
+  border-bottom: 1px solid var(--border-gold);
 }
 
 .page-title {
   margin: 0;
   font-size: 18px;
   font-weight: 700;
+  color: var(--primary-gold);
 }
 
 .header-actions { display: flex; align-items: center; gap: 14px; }
 
 .icon-btn {
-  border: none;
-  background: #f2ece4;
+  border: 1px solid var(--border-gold);
+  background: var(--black-primary);
   width: 36px; height: 36px;
   border-radius: 10px;
   display: grid; place-items: center;
-  color: var(--text-dark);
+  color: var(--primary-gold);
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.icon-btn:hover {
+  background: var(--primary-gold);
+  color: var(--black-primary);
 }
 
 .admin-info { display: flex; align-items: center; gap: 10px; }
-.avatar { width: 36px; height: 36px; border-radius: 10px; background: #e9d9c8; display: grid; place-items: center; font-weight: 700; }
+.avatar { width: 36px; height: 36px; border-radius: 10px; background: var(--black-primary); border: 1px solid var(--border-gold); display: grid; place-items: center; font-weight: 700; color: var(--primary-gold); }
 .meta { line-height: 1.1; }
-.meta .name { font-weight: 600; }
+.meta .name { font-weight: 600; color: var(--text-light); }
 .meta .email { font-size: 12px; color: var(--text-muted); }

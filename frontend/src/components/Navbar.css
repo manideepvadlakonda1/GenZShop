@@ -1,7 +1,7 @@
 /* Top Bar */
 .top-bar {
-    background-color: #1A1A1A;
-    color: #F3D27E;
+    background-color: var(--black-primary);
+    color: var(--primary-gold);
     padding: 12px 0;
     font-size: 14px;
     width: 100%;
@@ -53,9 +53,9 @@
 
 /* Navigation */
 .navbar {
-    background-color: #f8f9fa;
+    background-color: var(--black-secondary);
     padding: 10px 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 8px rgba(212, 175, 55, 0.2);
     width: 100%;
     overflow: visible;
     position: sticky;
@@ -64,6 +64,7 @@
     min-height: 85px;
     display: flex;
     align-items: center;
+    border-bottom: 1px solid var(--border-gold);
 }
 
 .navbar-content {
@@ -121,7 +122,7 @@
 }
 
 .nav-menu a {
-    color: #252B42;
+    color: var(--text-light);
     text-decoration: none;
     font-weight: 600;
     font-size: 15px;
@@ -132,7 +133,7 @@
 
 .nav-menu a:hover,
 .nav-menu a.active {
-    color: #8B1A1A;
+    color: var(--primary-gold);
 }
 
 .dropdown-toggle::after {
@@ -153,11 +154,15 @@
 }
 
 .icon-link {
-    color: #252B42;
+    color: var(--text-light);
     font-size: 20px;
     text-decoration: none;
     position: relative;
     transition: all 0.3s ease;
+}
+
+.icon-link:hover {
+    color: var(--primary-gold);
 }
 
 .profile-link {

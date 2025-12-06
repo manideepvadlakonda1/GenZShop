@@ -23,7 +23,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(92, 78, 66, 0.6);
+    background: rgba(26, 26, 26, 0.7);
     border-radius: 15px;
 }
 
@@ -68,12 +68,14 @@
 }
 
 .btn-primary {
-    background-color: #8B1A1A;
-    color: white;
+    background-color: var(--primary-gold);
+    color: var(--black-primary);
+    border: 2px solid var(--primary-gold);
 }
 
 .btn-primary:hover {
-    background-color: #6B1414;
+    background-color: transparent;
+    color: var(--primary-gold);
     transform: scale(1.05);
 }
 
@@ -87,7 +89,7 @@
 /* Shop By Category Section */
 .shop-category-section {
     padding: 60px 0;
-    background-color: white;
+    background-color: var(--dark-bg);
 }
 
 .section-header {
@@ -98,14 +100,14 @@
 .section-title {
     font-size: 32px;
     font-weight: 700;
-    color: #8B1A1A;
+    color: var(--primary-gold);
     margin-bottom: 10px;
     letter-spacing: 0.5px;
 }
 
 .section-subtitle {
     font-size: 16px;
-    color: #737373;
+    color: #999;
     font-weight: 400;
 }
 
