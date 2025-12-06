@@ -1,16 +1,16 @@
 .sidebar {
   background: var(--sidebar-bg);
   border-right: 1px solid var(--border-gold);
-    position: fixed;
+  position: fixed;
   top: 0;
   height: 100vh;
   display: flex;
   flex-direction: column;
-    transition: transform 0.25s ease;
+  transition: transform 0.25s ease;
   z-index: 20;
-    left: 0;
-    width: 240px;
-    transform: translateX(-100%);
+  left: 0;
+  width: 240px;
+  transform: translateX(-100%);
 }
 
 .sidebar-header {
@@ -27,9 +27,9 @@
   font-size: 18px;
   color: var(--primary-gold);
   cursor: pointer;
-    padding: 0;
-    margin: 0;
-    line-height: 1;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
 }
 
 .brand {
@@ -52,7 +52,7 @@
   border-radius: 8px;
   text-decoration: none;
   color: var(--text-light);
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .nav-item i { width: 18px; text-align: center; }
@@ -109,18 +109,11 @@
     from { opacity: 0; }
     to { opacity: 1; }
   }
-  .app-shell {
-    grid-template-columns: 220px 1fr;
-  }
-
-  .app-content {
-    padding: 15px;
-  }
 }
 
 @media (max-width: 768px) {
   .sidebar {
-      width: 240px; // Adjusted width for mobile
+    width: 240px;
   }
 
   .sidebar-header {
@@ -183,5 +176,14 @@
 
   .sidebar-footer {
     padding: 8px 4px 12px;
+  }
+}
+
+@media (min-width: 901px) {
+  .sidebar {
+    position: sticky !important;
+    left: auto;
+    transform: none;
+    z-index: 20;
   }
 }
