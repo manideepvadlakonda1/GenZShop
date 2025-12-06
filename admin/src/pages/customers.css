@@ -24,7 +24,7 @@
 }
 
 .customers-table-wrap {
-  background: white;
+  background: var(--card-bg);
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   overflow: hidden;
@@ -137,20 +137,20 @@
 
 /* Modal basics */
 .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center; z-index: 1000; }
-.modal-content { background: #fff; border-radius: 14px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); overflow: hidden; }
-.modal-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; border-bottom: 1px solid #f0f2f5; }
+.modal-content { background: var(--card-bg); border-radius: 14px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); overflow: hidden; }
+.modal-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; border-bottom: 1px solid var(--border-gold); }
 .close-btn { font-size: 22px; line-height: 1; background: none; border: none; cursor: pointer; }
 
 /* Order history layout */
 .orders-history { padding: 0 16px 16px; }
 .orders-history h3 { margin: 10px 0; color: #5c4033; }
-.order-row { display: grid; grid-template-columns: minmax(160px, 1.2fr) minmax(140px, 0.9fr) minmax(100px, 0.7fr) minmax(100px, auto); align-items: center; gap: 14px; padding: 10px 14px; border: 1px solid #f0f2f5; border-radius: 12px; background: #fff; margin-bottom: 10px; }
+.order-row { display: grid; grid-template-columns: minmax(160px, 1.2fr) minmax(140px, 0.9fr) minmax(100px, 0.7fr) minmax(100px, auto); align-items: center; gap: 14px; padding: 10px 14px; border: 1px solid var(--border-gold); border-radius: 12px; background: var(--card-bg); margin-bottom: 10px; }
 .order-id { font-weight: 700; letter-spacing: 0.2px; word-break: break-word; font-size: 13px; }
 .order-time { color: #737373; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .order-amount { font-weight: 700; font-size: 14px; }
-.status-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; border: 1px solid #e6e8eb; border-radius: 999px; padding: 5px 12px; background: #f8f9fa; justify-self: end; white-space: nowrap; min-width: fit-content; }
+.status-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; border: 1px solid #e6e8eb; border-radius: 999px; padding: 5px 12px; background: var(--black-primary); justify-self: end; white-space: nowrap; min-width: fit-content; }
 .status-badge.Processing { border-color: #D4AF37; color: #D4AF37; background: rgba(212, 175, 55, 0.15); }
-.status-badge.Shipped { border-color: #ffe3b3; color: #ff9800; background: #fff6e5; }
+.status-badge.Shipped { border-color: var(--border-gold); color: #ff9800; background: rgba(212, 175, 55, 0.1); }
 .status-badge.Delivered { border-color: #c9efd9; color: #4caf50; background: #eaf9f1; }
 .status-badge.Refunded { border-color: #ffd3d3; color: #f44336; background: #ffeeee; }
 

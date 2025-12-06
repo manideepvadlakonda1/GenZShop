@@ -95,7 +95,7 @@
 }
 
 .item-card {
-  background: white;
+  background: var(--card-bg);
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   transition: all 0.3s;
@@ -229,7 +229,7 @@
 }
 
 .modal-content {
-  background: white;
+  background: var(--card-bg);
   border-radius: 12px;
   padding: 0;
   max-width: 500px;
@@ -286,7 +286,7 @@
 .form-field input[type="file"] {
   width: 100%;
   padding: 10px 12px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-gold);
   border-radius: 6px;
   font-size: 14px;
 }

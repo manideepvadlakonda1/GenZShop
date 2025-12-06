@@ -21,7 +21,7 @@
 }
 
 .shipping-card {
-  background: white;
+  background: var(--card-bg);
   padding: 25px;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
@@ -118,8 +118,8 @@
 
 .toggle-btn {
   padding: 6px 16px;
-  border: 2px solid #ddd;
-  background: white;
+  border: 2px solid var(--border-gold);
+  background: var(--card-bg);
   color: #999;
   border-radius: 20px;
   cursor: pointer;
@@ -154,7 +154,7 @@
 .form-field textarea {
   width: 100%;
   padding: 12px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-gold);
   border-radius: 6px;
   font-size: 14px;
 }
@@ -204,7 +204,7 @@
 }
 
 .modal-content {
-  background: white;
+  background: var(--card-bg);
   border-radius: 12px;
   max-width: 600px;
   width: 90%;

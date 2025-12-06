@@ -21,7 +21,7 @@
 }
 
 .faq-card {
-  background: white;
+  background: var(--card-bg);
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
@@ -126,7 +126,7 @@
 .form-field textarea {
   width: 100%;
   padding: 12px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-gold);
   border-radius: 6px;
   font-size: 14px;
 }

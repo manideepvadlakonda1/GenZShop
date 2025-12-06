@@ -23,8 +23,8 @@
 }
 
 .add-btn {
-  background: #8B4513;
-  color: white;
+  background: var(--primary-gold);
+  color: var(--black-primary);
   border: none;
   padding: 10px 18px;
   border-radius: 8px;
@@ -33,18 +33,19 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  transition: background 0.2s;
+  transition: all 0.2s;
 }
 
 .add-btn:hover {
-  background: #6d3410;
+  background: var(--hover-gold);
 }
 
 .products-table-wrap {
-  background: white;
+  background: var(--card-bg);
   border-radius: 12px;
   overflow: hidden;
   box-shadow: var(--shadow);
+  border: 1px solid var(--border-gold);
 }
 
 .products-table {
@@ -53,8 +54,8 @@
 }
 
 .products-table thead {
-  background: #faf7f2;
-  border-bottom: 1px solid #e8dfd0;
+  background: var(--black-primary);
+  border-bottom: 1px solid var(--border-gold);
 }
 
 .products-table th {
@@ -62,13 +63,13 @@
   text-align: left;
   font-size: 12px;
   font-weight: 700;
-  color: var(--text-muted);
+  color: var(--primary-gold);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 .products-table tbody tr {
-  border-bottom: 1px solid #f0e6da;
+  border-bottom: 1px solid var(--border-gold);
 }
 
 .products-table tbody tr:last-child {
@@ -76,7 +77,7 @@
 }
 
 .products-table tbody tr:hover {
-  background: #fdfcfa;
+  background: rgba(212, 175, 55, 0.05);
 }
 
 .products-table td {
@@ -145,8 +146,8 @@
 }
 
 .icon-btn.edit {
-  background: #fff7e6;
-  color: #a66a00;
+  background: rgba(212, 175, 55, 0.1);
+  color: var(--primary-gold);
 }
 
 .icon-btn.edit:hover {

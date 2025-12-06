@@ -205,7 +205,7 @@
 }
 
 .price-inputs span {
-    color: #737373;
+    color: var(--primary-gold);
     font-weight: 600;
     flex-shrink: 0;
 }
@@ -214,23 +214,24 @@
     text-align: center;
     font-size: 13px;
     font-weight: 600;
-    color: #8B1A1A;
+    color: var(--primary-gold);
     padding: 8px;
-    background: #f8f9fa;
+    background: var(--black-primary);
     border-radius: 6px;
     word-break: break-word;
+    border: 1px solid var(--border-gold);
 }
 
 /* Active Filters */
 .active-filters {
     padding-top: 20px;
-    border-top: 2px solid #f0f0f0;
+    border-top: 2px solid var(--border-gold);
 }
 
 .active-filters h4 {
     font-size: 14px;
     font-weight: 700;
-    color: #252B42;
+    color: var(--primary-gold);
     margin-bottom: 10px;
 }
 
@@ -239,8 +240,8 @@
     align-items: center;
     gap: 8px;
     padding: 6px 12px;
-    background: #8B1A1A;
-    color: white;
+    background: var(--primary-gold);
+    color: var(--black-primary);
     border-radius: 20px;
     font-size: 12px;
     font-weight: 600;
