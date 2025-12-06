@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import logoImg from '../assets/logo.png'
 import './Footer.css'
 
 const Footer = () => {
@@ -11,7 +12,7 @@ const Footer = () => {
             {/* Brand Section */}
             <div className="footer-column footer-brand-section">
               <div className="brand-logo">
-                <img src="/logo.png" alt="GenZshop" className="footer-logo-img" />
+                <img src={logoImg} alt="GenZshop" className="footer-logo-img" />
                 <h3 className="footer-logo">GenZshop</h3>
               </div>
               <p className="brand-description">

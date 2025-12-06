@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { useCartStore } from '../context/cartStore'
 import { useAuthStore } from '../context/authStore'
 import { useWishlistStore } from '../context/wishlistStore'
+import logoImg from '../assets/logo.png'
 import './Navbar.css'
 
 const Navbar = () => {
@@ -22,7 +23,7 @@ const Navbar = () => {
         <div className="container navbar-content">
           <div className="navbar-left">
             <Link to="/" className="logo">
-              <img src="/logo.png" alt="GenZShop" className="logo-img" />
+              <img src={logoImg} alt="GenZShop" className="logo-img" />
               <span className="logo-text">GenZShop</span>
             </Link>
           </div>
